@@ -1,0 +1,2 @@
+# LiJinHongPassion.github.io
+blog
