@@ -1,0 +1,38 @@
+name: Deploy hexo blog
+on:
+  push:
+    branches:
+      - "release"
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-18.04
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          ref: "release"
+
+      - name: Setup node
+        uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+
+
+      - name: Setup Hexo
+        env:
+          ACTION_DEPLOY_KEY: ${{ secrets.GH_TOKEN }}
+        run: |
+          mkdir -p ~/.ssh/
+          echo "$ACTION_DEPLOY_KEY" > ~/.ssh/id_rsa
+          chmod 700 ~/.ssh
+          chmod 600 ~/.ssh/id_rsa
+          ssh-keyscan github.com >> ~/.ssh/known_hosts
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          rm -rf .deploy_git
+
+          npm install hexo-cli -g
+          npm install
+      - name: Deploy
+        run: |
+          hexo clean
+          hexo deploy
