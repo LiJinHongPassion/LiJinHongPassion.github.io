@@ -39,3 +39,4 @@ $ hexo deploy
 ```
 
 More info: [Deployment](https://hexo.io/docs/one-command-deployment.html)
+![[Pasted image 20231118164042.png]]
