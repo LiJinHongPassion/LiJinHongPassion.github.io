@@ -1,5 +1,6 @@
 {
   "dependencies": {
-    "hexo-deployer-heroku": "^1.0.0"
+    "hexo-deployer-heroku": "^1.0.0",
+    "hexo-theme-fluid": "^1.9.5-a"
   }
 }
