@@ -1,6 +1,6 @@
 ---
 title: Hello World
-tags: 
+categories: 
 - ces1
 - ces222
 ---
