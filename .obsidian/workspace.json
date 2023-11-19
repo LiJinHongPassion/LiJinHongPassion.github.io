@@ -13,9 +13,9 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
+                "file": "source/_posts/002目标/_软件工程.md",
                 "mode": "source",
-                "source": false
+                "source": true
               }
             }
           }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
+                "file": "source/_posts/002目标/_软件工程.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
+                "file": "source/_posts/002目标/_软件工程.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/002目标/方法论/_快速了解一个行业方法论.md"
+                "file": "source/_posts/002目标/_软件工程.md"
               }
             }
           }
@@ -155,34 +155,34 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "185e9082b38f4d8b",
+  "active": "dc249e75ba013126",
   "lastOpenFiles": [
-    "source/_posts/002目标/_软件工程.md",
     "source/_posts/002目标/买房/_房屋装修指南.md",
     "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/_posts/002目标/方法论/需求优先级排序方法论.md",
     "source/_posts/002目标/方法论/需求分解方法论.md",
     "source/_posts/002目标/方法论/输入处理输出方法论.md",
-    "source/_posts/002目标/方法论/_说服别人的方法论.md",
     "source/_posts/002目标/方法论/事务管理策略.md",
-    "source/_posts/002目标/方法论/_软件开发流程管理方法论.md",
     "source/_posts/002目标/方法论/根本问题分析法.md",
     "source/_posts/002目标/方法论/高效交流方法论.md",
-    "source/_posts/004归档/笔记/笔记模版（dataview）.md",
+    "source/_posts/002目标/方法论/_说服别人的方法论.md",
+    "source/_posts/002目标/方法论/_软件开发流程管理方法论.md",
     "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
+    "source/_posts/hello-world.md",
+    "public/categories/学习/方法论/高效交流方法论/index.html",
+    "public/categories/学习/方法论/需求优先级排序方法论/index.html",
+    "public/categories/学习/方法论/根本问题分析法/index.html",
+    "public/categories/学习/方法论/需求分解方法论/index.html",
+    "public/categories/学习/方法论/输入处理输出方法论/index.html",
+    "public/categories/学习/方法论/事务管理策略/index.html",
+    "public/categories/学习/方法论/高效交流方法论",
+    "public/categories/学习/方法论/需求分解方法论",
+    "public/categories/学习/方法论/需求优先级排序方法论",
+    "public/categories/学习/方法论/输入处理输出方法论",
+    "source/_posts/002目标/_软件工程.md",
+    "source/_posts/004归档/笔记/笔记模版（dataview）.md",
     "source/_posts/000index/个人职业规划.md",
     "source/_posts/000index/index.md",
-    "source/_posts/hello-world.md",
-    "public/page/4/index.html",
-    "public/page/3/index.html",
-    "public/page/2/index.html",
-    "public/page/4",
-    "public/page/3",
-    "public/page/2",
-    "public/page",
-    "public/archives/2023/page/3/index.html",
-    "public/archives/2023/page/4/index.html",
-    "public/archives/2023/page/2/index.html",
     "source/_posts/004归档/年度计划/2023/2023年度计划.md",
     "source/_posts/004归档/方法论/png/四象限法则.png",
     "source/_posts/004归档/副业/第二份工作.md",
@@ -197,7 +197,6 @@
     "source/_posts/004归档/笔记/PARA方法论.md",
     "source/_posts/004归档/笔记/Obsidian安装.md",
     "source/_posts/003兴趣/社会规则.md",
-    "source/_posts/003兴趣/个人穿搭公式.md",
     "source/_posts/000index/Pasted image 20230211160840.png",
     "source/_posts/Pasted image 20231118164042.png"
   ]
