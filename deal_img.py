@@ -55,12 +55,13 @@ def replace_images_with_base64(directory_path):
                     # 将图片文件替换为base64字符串
                     image_base64 = base64.b64encode(image_data).decode("utf-8")
                     md_content = md_content[:start_idx] + "![](data:image/png;base64," + image_base64 + ")" + md_content[end_idx+2:]
-
+                    
                 search_start_idx = end_idx + 2
 
             # 将替换后的内容写回md文件
             with open(file_path, "w", encoding="utf-8") as file:
                 file.write(md_content)
+                os.remove(image_path)
                 
 
 

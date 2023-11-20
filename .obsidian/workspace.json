@@ -141,8 +141,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 300,
-    "collapsed": true
+    "width": 300
   },
   "left-ribbon": {
     "hiddenItems": {
@@ -157,6 +156,15 @@
   },
   "active": "185e9082b38f4d8b",
   "lastOpenFiles": [
+    "source/_posts/000index/Pasted image 20230211160840.png",
+    "source/_posts/004归档/笔记/Obsidian安装.md",
+    "source/_posts/004归档/项目管理/1071677245646_.pic.jpg",
+    "source/_posts/004归档/项目管理/敏捷开发流程图.png",
+    "source/_posts/004归档/笔记/Pasted image 20230211124917.png",
+    "source/_posts/004归档/笔记/Pasted image 20230211125057.png",
+    "public/img/my/default.png",
+    "public/img/my/header.jpg",
+    "public/img/my",
     "source/img/my/header.jpg",
     "source/img/my/default.png",
     "source/img/my",
@@ -165,9 +173,6 @@
     "source/img/default.png",
     "source/img",
     "source/未命名文件夹",
-    "public/img/default.png",
-    "public/img/xiangye.jpg",
-    "xiangye.jpg",
     "source/_posts/004归档/笔记/PARA方法论.md",
     "source/_posts/004归档/项目管理/团队运作机制和开发流程.md",
     "source/_posts/002目标/方法论/需求优先级排序方法论.md",
@@ -177,7 +182,6 @@
     "未命名文件夹",
     "public/categories/002目标/index.html",
     "public/categories/002目标/学习/方法论/需求分解方法论/index.html",
-    "public/categories/002目标/学习/方法论/根本问题分析法/index.html",
     "source/_posts/002目标/买房/_房屋装修指南.md",
     "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/_posts/002目标/方法论/需求分解方法论.md",
@@ -193,15 +197,10 @@
     "source/_posts/000index/个人职业规划.md",
     "source/_posts/000index/index.md",
     "source/_posts/004归档/年度计划/2023/2023年度计划.md",
-    "source/_posts/004归档/方法论/png/四象限法则.png",
     "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/搞机Root.md",
     "source/_posts/004归档/副业/steam二手贩子.md",
-    "source/_posts/004归档/项目管理/敏捷开发流程图.png",
-    "source/_posts/004归档/项目管理/1071677245646_.pic.jpg",
     "source/_posts/004归档/笔记/人生8+1System.md",
-    "source/_posts/004归档/笔记/Pasted image 20230211125057.png",
-    "source/_posts/004归档/笔记/Obsidian安装.md",
     "source/_posts/003兴趣/社会规则.md"
   ]
 }
