@@ -33,8 +33,6 @@ def replace_images_with_base64(directory_path):
             while True:
                 # 查找图片文件名的开始和结束位置
                 start_idx = md_content.find("![[", search_start_idx)
-                if file_path.endswith('团队运作机制和开发流程.md'):
-                    print('start_idx:', md_content)
                 if start_idx == -1:
                     break
                 end_idx = md_content.find("]]", start_idx)
@@ -46,7 +44,7 @@ def replace_images_with_base64(directory_path):
                 print('image_name:', image_file_name)
 
                 # 在指定目录中查找图片文件并转换为base64字符串
-                image_path = get_paths_with_suffix(file_list, image_file_name)
+                image_path = get_paths_with_suffix(file_list, image_file_name)[0]
                 print('image_path:', image_path)
                 if os.path.exists(image_path):
                     with open(image_path, "rb") as image_file:
@@ -55,13 +53,12 @@ def replace_images_with_base64(directory_path):
                     # 将图片文件替换为base64字符串
                     image_base64 = base64.b64encode(image_data).decode("utf-8")
                     md_content = md_content[:start_idx] + "![](data:image/png;base64," + image_base64 + ")" + md_content[end_idx+2:]
-                    
+                    os.remove(image_path)
                 search_start_idx = end_idx + 2
 
             # 将替换后的内容写回md文件
             with open(file_path, "w", encoding="utf-8") as file:
                 file.write(md_content)
-                os.remove(image_path)
                 
 
 

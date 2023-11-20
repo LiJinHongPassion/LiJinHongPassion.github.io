@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/hello-world.md",
                 "mode": "preview",
                 "source": true
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/hello-world.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/hello-world.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md"
+                "file": "source/_posts/hello-world.md"
               }
             }
           }
@@ -156,8 +156,12 @@
   },
   "active": "185e9082b38f4d8b",
   "lastOpenFiles": [
-    "source/_posts/000index/Pasted image 20230211160840.png",
+    "Pasted image 20231120211957.png",
     "source/_posts/004归档/笔记/Obsidian安装.md",
+    "git-push.sh",
+    "未命名.sh",
+    "未命名文件夹",
+    "source/_posts/000index/Pasted image 20230211160840.png",
     "source/_posts/004归档/项目管理/1071677245646_.pic.jpg",
     "source/_posts/004归档/项目管理/敏捷开发流程图.png",
     "source/_posts/004归档/笔记/Pasted image 20230211124917.png",
@@ -170,7 +174,6 @@
     "source/img/my",
     "source/img/未命名文件夹",
     "source/img/header.jpg",
-    "source/img/default.png",
     "source/img",
     "source/未命名文件夹",
     "source/_posts/004归档/笔记/PARA方法论.md",
@@ -179,9 +182,6 @@
     "source/_posts/002目标/_软件工程.md",
     "deal_img.py",
     "未命名.txt",
-    "未命名文件夹",
-    "public/categories/002目标/index.html",
-    "public/categories/002目标/学习/方法论/需求分解方法论/index.html",
     "source/_posts/002目标/买房/_房屋装修指南.md",
     "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/_posts/002目标/方法论/需求分解方法论.md",
