@@ -4,18 +4,18 @@
     "type": "split",
     "children": [
       {
-        "id": "8574d8f358ad025a",
+        "id": "a2c1be25f1606b97",
         "type": "tabs",
         "children": [
           {
-            "id": "185e9082b38f4d8b",
+            "id": "be6ef05a8bb4517d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
                 "file": "source/_posts/hello-world.md",
-                "mode": "preview",
-                "source": true
+                "mode": "source",
+                "source": false
               }
             }
           }
@@ -154,8 +154,11 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "185e9082b38f4d8b",
+  "active": "dc249e75ba013126",
   "lastOpenFiles": [
+    "Pasted image 20231121074229.png",
+    "source/_posts/004归档/年度计划/2023/2023年度计划.md",
+    "source/_posts/hello-world.md",
     "Pasted image 20231120211957.png",
     "source/_posts/004归档/笔记/Obsidian安装.md",
     "git-push.sh",
@@ -170,10 +173,8 @@
     "public/img/my/header.jpg",
     "public/img/my",
     "source/img/my/header.jpg",
-    "source/img/my/default.png",
     "source/img/my",
     "source/img/未命名文件夹",
-    "source/img/header.jpg",
     "source/img",
     "source/未命名文件夹",
     "source/_posts/004归档/笔记/PARA方法论.md",
@@ -192,11 +193,9 @@
     "source/_posts/002目标/方法论/_说服别人的方法论.md",
     "source/_posts/002目标/方法论/_软件开发流程管理方法论.md",
     "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
-    "source/_posts/hello-world.md",
     "source/_posts/004归档/笔记/笔记模版（dataview）.md",
     "source/_posts/000index/个人职业规划.md",
     "source/_posts/000index/index.md",
-    "source/_posts/004归档/年度计划/2023/2023年度计划.md",
     "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/搞机Root.md",
     "source/_posts/004归档/副业/steam二手贩子.md",
