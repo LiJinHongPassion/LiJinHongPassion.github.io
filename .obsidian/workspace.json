@@ -148,6 +148,10 @@
   },
   "active": "be6ef05a8bb4517d",
   "lastOpenFiles": [
+    "source/_posts/004归档/副业/第二份工作.md",
+    "source/_posts/004归档/副业/搞机Root.md",
+    "source/_posts/004归档/副业/steam二手贩子.md",
+    "source/_posts/004归档/副业",
     "source/_posts/004归档/方法论/png/四象限法则.png",
     "source/_posts/004归档/年度计划/2023/2023年度计划.md",
     "source/_posts/004归档/项目管理/团队运作机制和开发流程.md",
@@ -157,9 +161,6 @@
     "source/_posts/004归档/笔记/Obsidian安装.md",
     "source/_posts/004归档/方法论/png",
     "source/_posts/004归档/年度计划/2023",
-    "source/_posts/004归档/副业/steam二手贩子.md",
-    "source/_posts/004归档/副业/第二份工作.md",
-    "source/_posts/004归档/副业/搞机Root.md",
     "source/_posts/003兴趣/解决方案/解决方案工程师（SE）能力分析.md",
     "source/_posts/003兴趣/解决方案/行业解决方案流程.md",
     "source/_posts/003兴趣/社交/如何拒绝别人.md",
@@ -182,7 +183,6 @@
     "source/_posts/004归档/笔记",
     "source/_posts/004归档/方法论",
     "source/_posts/004归档/年度计划",
-    "source/_posts/004归档/副业",
     "source/_posts/003兴趣/解决方案",
     "source/_posts/003兴趣/社交",
     "source/_posts/002目标/方法论",
@@ -192,7 +192,6 @@
     "node_modules/hexo-theme-fluid/source/img/police_beian.png",
     "node_modules/hexo-theme-fluid/source/img/fluid.png",
     "node_modules/hexo-theme-fluid/source/img/default.png",
-    "node_modules/nib/iconic/iconic_stroke.svg",
-    "node_modules/highlight.js/styles/pojoaque.jpg"
+    "node_modules/nib/iconic/iconic_stroke.svg"
   ]
 }
