@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/000index/个人职业规划.md",
                 "mode": "source",
                 "source": true
               }
@@ -73,8 +73,7 @@
               "state": {}
             }
           }
-        ],
-        "currentTab": 3
+        ]
       }
     ],
     "direction": "horizontal",
@@ -94,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/000index/个人职业规划.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -111,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md",
+                "file": "source/_posts/000index/个人职业规划.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -134,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/004归档/笔记/Obsidian安装.md"
+                "file": "source/_posts/000index/个人职业规划.md"
               }
             }
           }
@@ -156,14 +155,24 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "be6ef05a8bb4517d",
+  "active": "dc249e75ba013126",
   "lastOpenFiles": [
-    "source/_posts/002目标/买房/_重庆买房指南.md",
-    "source/_posts/004归档/笔记/Obsidian安装.md",
-    "source/_posts/000index/index的副本.md",
     "source/_posts/000index/index.md",
-    "source/about/index.md",
+    "source/_posts/000index/个人职业规划.md",
     "source/_posts/hello-world.md",
+    "scaffolds/_obsidian.md",
+    "source/_posts/004归档/副业/第二份工作.md",
+    "scaffolds/post.md",
+    "scaffolds/page.md",
+    "scaffolds/draft.md",
+    "source/_posts/004归档/笔记/Obsidian安装.md",
+    "public/categories/004归档/学习/笔记/index.html",
+    "public/categories/004归档/学习/笔记",
+    "public/categories/004归档/学习/index.html",
+    "public/categories/004归档/学习",
+    "source/_posts/002目标/买房/_重庆买房指南.md",
+    "source/_posts/000index/index的副本.md",
+    "source/about/index.md",
     "source/_posts/004归档/年度计划/2023/2023年度计划.md",
     "source/_posts/002目标/方法论/_软件开发流程管理方法论.md",
     "source/_posts/002目标/_软件工程.md",
@@ -176,14 +185,8 @@
     "source/_posts/002目标/方法论/输入处理输出方法论.md",
     "source/_posts/003兴趣/解决方案/解决方案工程师（SE）能力分析.md",
     "source/_posts/003兴趣/解决方案/行业解决方案流程.md",
-    "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/笔记/笔记模版（dataview）.md",
     "source/_posts/003兴趣/社会规则.md",
-    "source/_posts/002目标/方法论/根本问题分析法.md",
-    "source/_posts/004归档/副业/搞机Root.md",
-    "source/_posts/未命名.md",
-    "source/_posts/003兴趣/如何读好一本书.md",
-    "source/_posts/003兴趣/社交/如何拒绝别人.md",
     "source/_posts/004归档/方法论/png/四象限法则.png",
     "source/_posts/004归档/副业",
     "source/_posts/004归档/方法论/png",
@@ -193,10 +196,6 @@
     "source/_posts/004归档/项目管理",
     "source/_posts/004归档/笔记",
     "source/_posts/004归档/方法论",
-    "source/_posts/004归档/年度计划",
-    "source/_posts/003兴趣/解决方案",
-    "source/_posts/003兴趣/社交",
-    "source/_posts/002目标/方法论",
     "node_modules/hexo-theme-landscape/source/css/images/banner.jpg",
     "node_modules/hexo-theme-fluid/source/img/loading.gif",
     "node_modules/hexo-theme-fluid/source/img/avatar.png",
