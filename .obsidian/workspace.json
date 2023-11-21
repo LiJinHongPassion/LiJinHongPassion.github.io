@@ -11,8 +11,12 @@
             "id": "be6ef05a8bb4517d",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/002目标/买房/_重庆买房指南.md",
+                "mode": "source",
+                "source": true
+              }
             }
           }
         ]
@@ -69,7 +73,8 @@
               "state": {}
             }
           }
-        ]
+        ],
+        "currentTab": 3
       }
     ],
     "direction": "horizontal",
@@ -89,6 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "source/_posts/002目标/买房/_重庆买房指南.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -105,6 +111,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "source/_posts/002目标/买房/_重庆买房指南.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +133,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "source/_posts/002目标/买房/_重庆买房指南.md"
+              }
             }
           }
         ]
@@ -148,12 +157,16 @@
   },
   "active": "be6ef05a8bb4517d",
   "lastOpenFiles": [
+    "source/_posts/004归档/年度计划/2023/2023年度计划.md",
+    "source/_posts/002目标/买房/_重庆买房指南.md",
+    "source/_posts/002目标/方法论/_说服别人的方法论.md",
+    "source/_posts/002目标/买房/_房屋装修指南.md",
+    "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
     "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/搞机Root.md",
     "source/_posts/004归档/副业/steam二手贩子.md",
     "source/_posts/004归档/副业",
     "source/_posts/004归档/方法论/png/四象限法则.png",
-    "source/_posts/004归档/年度计划/2023/2023年度计划.md",
     "source/_posts/004归档/项目管理/团队运作机制和开发流程.md",
     "source/_posts/004归档/笔记/笔记模版（dataview）.md",
     "source/_posts/004归档/笔记/人生8+1System.md",
@@ -173,10 +186,6 @@
     "source/_posts/002目标/方法论/根本问题分析法.md",
     "source/_posts/002目标/方法论/事务管理策略.md",
     "source/_posts/002目标/方法论/_软件开发流程管理方法论.md",
-    "source/_posts/002目标/方法论/_说服别人的方法论.md",
-    "source/_posts/002目标/方法论/_快速了解一个行业方法论.md",
-    "source/_posts/002目标/买房/_房屋装修指南.md",
-    "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/img/my/header.jpg",
     "source/img/my/default.png",
     "source/_posts/004归档/项目管理",
