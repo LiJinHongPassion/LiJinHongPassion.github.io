@@ -11,12 +11,8 @@
             "id": "be6ef05a8bb4517d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/004归档/副业/搞机Root.md",
-                "mode": "source",
-                "source": true
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/004归档/副业/搞机Root.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/004归档/副业/搞机Root.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "source/_posts/004归档/副业/搞机Root.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -154,10 +146,10 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "dc249e75ba013126",
+  "active": "be6ef05a8bb4517d",
   "lastOpenFiles": [
-    "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/搞机Root.md",
+    "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/steam二手贩子.md",
     "source/_posts/hello-world.md",
     "deal_only_drive.py",
