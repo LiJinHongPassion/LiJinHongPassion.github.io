@@ -10,7 +10,7 @@ def filter_md_files(folder_path):
                 with open(file_path, 'r') as file:
                     content = file.read()
                 # 判断是否包含"onlyOneDrive: true"
-                if "onlyOneDrive: true" in content:
+                if "onlyOneDrive: true" in content or "onlyOneDrive: \"true\"" in content or "onlyOneDrive: \"True\"" in content or "onlyOneDrive: \"TRUE\"" in content:
                     # 遍历.gitignore文件
                     for root2, dirs2, files2 in os.walk(folder_path):
                         for file_name2 in files2:
