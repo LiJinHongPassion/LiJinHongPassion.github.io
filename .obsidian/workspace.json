@@ -11,12 +11,8 @@
             "id": "be6ef05a8bb4517d",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -93,7 +89,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +105,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -132,9 +126,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md"
-              }
+              "state": {}
             }
           }
         ]
@@ -154,8 +146,19 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "dc249e75ba013126",
+  "active": "be6ef05a8bb4517d",
   "lastOpenFiles": [
+    "source/_posts/004归档/笔记/笔记模版（dataview）.md",
+    "public/2023/02/5b097d8418c1.html",
+    "public/2023/04/29f1bb5ef95d.html",
+    "public/2023/03/7d14b4b9c265.html",
+    "public/2023/04/c254f41d847a.html",
+    "public/2023/04/3e661e7eb1f6.html",
+    "public/tags/赚钱-副业-第二份工作/index.html",
+    "public/tags/赚钱-副业-steam二手贩子/index.html",
+    "public/tags/赚钱-副业-搞机Root/index.html",
+    "public/archives/2023/02/page/3/index.html",
+    "public/archives/2023/02/page/3",
     "source/_posts/test-only.md",
     "source/_posts/steam二手贩子.md",
     "source/_posts/000index/index的副本.md",
@@ -163,22 +166,12 @@
     "source/_posts/004归档/副业/第二份工作.md",
     "source/_posts/004归档/副业/搞机Root.md",
     "source/_posts/004归档/副业/steam二手贩子.md",
-    "source/_posts/004归档/副业",
     "source/_posts/副业/第二份工作.md",
     "source/_posts/副业/搞机Root.md",
     "source/_posts/副业/steam二手贩子.md",
-    "source/_posts/副业",
-    "public/2023/03/7d14b4b9c265.html",
-    "public/2023/04/c254f41d847a.html",
-    "public/2023/04/3e661e7eb1f6.html",
-    "public/tags/赚钱-副业-steam二手贩子/index.html",
-    "public/tags/赚钱-副业-搞机Root/index.html",
-    "public/tags/赚钱-副业-第二份工作/index.html",
     "副业/第二份工作.md",
     "副业/搞机Root.md",
     "副业/steam二手贩子.md",
-    "副业",
-    "public/tags/赚钱-副业-第二份工作",
     "public/img/my/default.png",
     "public/img/default.png",
     "public/img/police_beian.png",
@@ -200,7 +193,6 @@
     "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/_posts/002目标/方法论/需求分解方法论.md",
     "source/_posts/002目标/方法论/输入处理输出方法论.md",
-    "source/_posts/002目标/方法论/事务管理策略.md",
-    "source/_posts/002目标/方法论/根本问题分析法.md"
+    "source/_posts/002目标/方法论/事务管理策略.md"
   ]
 }
