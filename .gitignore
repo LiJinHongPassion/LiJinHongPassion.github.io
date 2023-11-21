@@ -1,0 +1,16 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+_multiconfig.yml
+.obsidian/workspace
+source/_posts/004归档/副业/steam二手贩子.md
+
+source/_posts/004归档/副业/搞机Root.md 
+
+source/_posts/004归档/副业/第二份工作.md # onlyOneDrive 
+
+source/_posts/test-only.md # onlyOneDrive 
