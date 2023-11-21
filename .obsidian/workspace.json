@@ -1,0 +1,205 @@
+{
+  "main": {
+    "id": "0ca370f22d25d4d5",
+    "type": "split",
+    "children": [
+      {
+        "id": "a2c1be25f1606b97",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "be6ef05a8bb4517d",
+            "type": "leaf",
+            "state": {
+              "type": "markdown",
+              "state": {
+                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
+                "mode": "source",
+                "source": false
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "vertical"
+  },
+  "left": {
+    "id": "9d753f2561ed218a",
+    "type": "split",
+    "children": [
+      {
+        "id": "a8b13448c20a6afa",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "dc249e75ba013126",
+            "type": "leaf",
+            "state": {
+              "type": "file-explorer",
+              "state": {
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "def73a0028d9c996",
+            "type": "leaf",
+            "state": {
+              "type": "search",
+              "state": {
+                "query": "",
+                "matchingCase": false,
+                "explainSearch": false,
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical"
+              }
+            }
+          },
+          {
+            "id": "cf64267660a4298c",
+            "type": "leaf",
+            "state": {
+              "type": "bookmarks",
+              "state": {}
+            }
+          },
+          {
+            "id": "0a5c823c8a69e808",
+            "type": "leaf",
+            "state": {
+              "type": "file-tree-view",
+              "state": {}
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "right": {
+    "id": "20d8252b17d2dee9",
+    "type": "split",
+    "children": [
+      {
+        "id": "966c07f99d5f992a",
+        "type": "tabs",
+        "children": [
+          {
+            "id": "76e00c74caea884d",
+            "type": "leaf",
+            "state": {
+              "type": "backlink",
+              "state": {
+                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
+                "collapseAll": false,
+                "extraContext": false,
+                "sortOrder": "alphabetical",
+                "showSearch": false,
+                "searchQuery": "",
+                "backlinkCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "b46db723eb3b8f34",
+            "type": "leaf",
+            "state": {
+              "type": "outgoing-link",
+              "state": {
+                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md",
+                "linksCollapsed": false,
+                "unlinkedCollapsed": true
+              }
+            }
+          },
+          {
+            "id": "7b2c3ce60a69b792",
+            "type": "leaf",
+            "state": {
+              "type": "tag",
+              "state": {
+                "sortOrder": "frequency",
+                "useHierarchy": true
+              }
+            }
+          },
+          {
+            "id": "16fb1e06a6805c63",
+            "type": "leaf",
+            "state": {
+              "type": "outline",
+              "state": {
+                "file": "source/_posts/004归档/笔记/笔记模版（dataview）.md"
+              }
+            }
+          }
+        ]
+      }
+    ],
+    "direction": "horizontal",
+    "width": 300
+  },
+  "left-ribbon": {
+    "hiddenItems": {
+      "switcher:打开快速切换": false,
+      "graph:查看关系图谱": false,
+      "canvas:新建白板": false,
+      "daily-notes:打开/创建今天的日记": false,
+      "templates:插入模板": false,
+      "command-palette:打开命令面板": false,
+      "file-tree-alternative:File Tree Alternative Plugin": false
+    }
+  },
+  "active": "dc249e75ba013126",
+  "lastOpenFiles": [
+    "public/2023/03/7d14b4b9c265.html",
+    "public/2023/04/c254f41d847a.html",
+    "public/2023/04/3e661e7eb1f6.html",
+    "public/tags/赚钱-副业-第二份工作/index.html",
+    "public/tags/赚钱-副业-steam二手贩子/index.html",
+    "public/tags/赚钱-副业-搞机Root/index.html",
+    "source/_posts/004归档/副业/第二份工作.md",
+    "source/_posts/004归档/副业/搞机Root.md",
+    "source/_posts/004归档/副业/steam二手贩子.md",
+    "source/_posts/004归档/副业",
+    "副业/第二份工作.md",
+    "副业/搞机Root.md",
+    "副业/steam二手贩子.md",
+    "副业",
+    "source/_posts/副业/第二份工作.md",
+    "source/_posts/副业/搞机Root.md",
+    "source/_posts/副业/steam二手贩子.md",
+    "source/_posts/副业",
+    "public/tags/赚钱-副业-第二份工作",
+    "public/img/my/default.png",
+    "public/img/default.png",
+    "public/img/police_beian.png",
+    "public/img/loading.gif",
+    "public/img/fluid.png",
+    "public/img/my/header.jpg",
+    "public/img/avatar.png",
+    "source/_posts/hello-world.md",
+    "Pasted image 20231121074229.png",
+    "source/_posts/004归档/年度计划/2023/2023年度计划.md",
+    "Pasted image 20231120211957.png",
+    "source/_posts/004归档/笔记/Obsidian安装.md",
+    "source/_posts/000index/Pasted image 20230211160840.png",
+    "source/_posts/004归档/笔记/PARA方法论.md",
+    "source/_posts/004归档/项目管理/团队运作机制和开发流程.md",
+    "source/_posts/002目标/方法论/需求优先级排序方法论.md",
+    "source/_posts/002目标/_软件工程.md",
+    "source/_posts/002目标/买房/_房屋装修指南.md",
+    "source/_posts/002目标/买房/_重庆买房指南.md",
+    "source/_posts/002目标/方法论/需求分解方法论.md",
+    "source/_posts/002目标/方法论/输入处理输出方法论.md",
+    "source/_posts/002目标/方法论/事务管理策略.md",
+    "source/_posts/002目标/方法论/根本问题分析法.md",
+    "source/_posts/002目标/方法论/高效交流方法论.md",
+    "source/_posts/002目标/方法论/_说服别人的方法论.md",
+    "source/_posts/002目标/方法论/_软件开发流程管理方法论.md"
+  ]
+}
