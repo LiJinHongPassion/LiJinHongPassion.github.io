@@ -18,7 +18,6 @@ def filter_md_files(folder_path):
                         gitignore_content = gitignore_file.read()
                     # 判断是否已经存在相同内容
                     add_ignore_file_path = os.path.relpath(file_path, folder_path)
-                    print('add_ignore_file_path', add_ignore_file_path, add_ignore_file_path in gitignore_content)
                     if add_ignore_file_path in gitignore_content:
                         continue
                     # 添加内容到.gitignore文件末尾
