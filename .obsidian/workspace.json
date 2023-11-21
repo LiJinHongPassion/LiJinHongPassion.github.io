@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "source/_posts/hello-world.md",
+                "file": "source/_posts/004归档/副业/第二份工作.md",
                 "mode": "source",
                 "source": false
               }
@@ -93,7 +93,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "source/_posts/hello-world.md",
+                "file": "source/_posts/004归档/副业/第二份工作.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -110,7 +110,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "source/_posts/hello-world.md",
+                "file": "source/_posts/004归档/副业/第二份工作.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -133,7 +133,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "source/_posts/hello-world.md"
+                "file": "source/_posts/004归档/副业/第二份工作.md"
               }
             }
           }
@@ -154,11 +154,17 @@
       "file-tree-alternative:File Tree Alternative Plugin": false
     }
   },
-  "active": "dc249e75ba013126",
+  "active": "be6ef05a8bb4517d",
   "lastOpenFiles": [
+    "source/_posts/004归档/副业/搞机Root.md",
+    "source/_posts/004归档/副业/steam二手贩子.md",
+    "source/_posts/004归档/副业/第二份工作.md",
+    "source/_posts/hello-world.md",
+    "deal_only_drive.py",
+    "deal_img的副本.py",
+    "git-push.sh的替身",
     "Pasted image 20231121074229.png",
     "source/_posts/004归档/年度计划/2023/2023年度计划.md",
-    "source/_posts/hello-world.md",
     "Pasted image 20231120211957.png",
     "source/_posts/004归档/笔记/Obsidian安装.md",
     "git-push.sh",
@@ -176,13 +182,10 @@
     "source/img/my",
     "source/img/未命名文件夹",
     "source/img",
-    "source/未命名文件夹",
     "source/_posts/004归档/笔记/PARA方法论.md",
     "source/_posts/004归档/项目管理/团队运作机制和开发流程.md",
     "source/_posts/002目标/方法论/需求优先级排序方法论.md",
     "source/_posts/002目标/_软件工程.md",
-    "deal_img.py",
-    "未命名.txt",
     "source/_posts/002目标/买房/_房屋装修指南.md",
     "source/_posts/002目标/买房/_重庆买房指南.md",
     "source/_posts/002目标/方法论/需求分解方法论.md",
@@ -196,9 +199,6 @@
     "source/_posts/004归档/笔记/笔记模版（dataview）.md",
     "source/_posts/000index/个人职业规划.md",
     "source/_posts/000index/index.md",
-    "source/_posts/004归档/副业/第二份工作.md",
-    "source/_posts/004归档/副业/搞机Root.md",
-    "source/_posts/004归档/副业/steam二手贩子.md",
     "source/_posts/004归档/笔记/人生8+1System.md",
     "source/_posts/003兴趣/社会规则.md"
   ]

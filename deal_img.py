@@ -1,6 +1,8 @@
 import os
 import base64
 
+
+# 将md文件中的![[图片]]转化为base64的脚本
 def get_all_file_paths(directory_path):
     file_paths = []
     for root, dirs, files in os.walk(directory_path):
