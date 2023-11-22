@@ -1,5 +1,17 @@
 import os
 
+def clean_gitignore(folder_path):
+    igonre_path = os.path.join(folder_path, '.gitignore')
+    file = open(igonre_path, 'r')
+    lines = file.readlines()
+    index = 0
+    for line in lines:
+        if 'onlyOneDrive' in line:
+            break
+        index = index + 1
+    lines = lines[0: index]
+    with open(igonre_path, 'a') as gitignore_file:
+
 def filter_md_files(folder_path):
     # 遍历文件夹
     for root, dirs, files in os.walk(folder_path):
