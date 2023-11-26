@@ -6,6 +6,7 @@ node_modules/
 public/
 .deploy*/
 !source/_posts/*.md
+!source/_posts/**/*.md
 _multiconfig.yml
 .obsidian/**
 # onlyOneDrive 
