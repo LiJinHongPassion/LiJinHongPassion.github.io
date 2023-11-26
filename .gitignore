@@ -1,0 +1,24 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+!source/_posts/*.md
+!source/_posts/**/*.md
+!source/_posts/**/**/*.md
+_multiconfig.yml
+.obsidian/**
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/steam二手贩子.md
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/搞机Root.md
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/第二份工作.md
+# onlyOneDrive 
+source/_posts/2目标/+1/工作/项目上的压测瓶颈分析.md
+# onlyOneDrive 
+source/_posts/3兴趣/学习/VPS.md
+# onlyOneDrive 
+.trash/test-only.md
