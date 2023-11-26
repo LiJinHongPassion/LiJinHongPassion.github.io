@@ -1,0 +1,43 @@
+.DS_Store
+Thumbs.db
+db.json
+*.log
+node_modules/
+public/
+.deploy*/
+!source/_posts/*.md
+!source/_posts/**/*.md
+!source/_posts/**/**/*.md
+source/_posts/draw.io*/
+_multiconfig.yml
+.obsidian/**
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/steam二手贩子.md
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/搞机Root.md
+# onlyOneDrive 
+source/_posts/4归档/赚钱/副业/第二份工作.md
+# onlyOneDrive 
+source/_posts/0笔记/3 笔记模版（dataview）.md
+# onlyOneDrive 
+source/_posts/0笔记/index.md
+# onlyOneDrive 
+source/_posts/0笔记/2 Obsidian安装.md
+# onlyOneDrive 
+source/_posts/1项目/社交/_如何拒绝别人.md
+# onlyOneDrive 
+source/_posts/1项目/社交/_如何处理亲戚之间的关系.md
+# onlyOneDrive 
+source/_posts/1项目/社交/_如何处理朋友之间的关系.md
+# onlyOneDrive 
+source/_posts/2目标/家庭/买房/_重庆买房指南.md
+# onlyOneDrive 
+source/_posts/2目标/家庭/买房/_房屋装修指南.md
+# onlyOneDrive 
+source/_posts/2目标/+1/工作/_项目上的压测瓶颈分析.md
+# onlyOneDrive 
+source/_posts/3兴趣/学习/VPS.md
+# onlyOneDrive 
+source/_posts/3兴趣/学习/社会规则.md
+# onlyOneDrive 
+.trash/test-only.md
