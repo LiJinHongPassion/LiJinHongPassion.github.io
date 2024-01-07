@@ -1,0 +1,44 @@
+{
+  "users": [
+    {
+      "id": "测试人员",
+      "label": "测试人员",
+      "name": "测试人员",
+      "gender": "\u7537",
+      "field": "\u8ba1\u7b97\u673a",
+      "profession": "\u8f6f\u4ef6\u5f00\u53d1\u5de5\u7a0b\u5e08",
+      "birthday": "无",
+      "description": "\u65e0"
+    },
+    {
+      "id": "\u65b9\u81e3",
+      "label": "\u65b9\u81e3",
+      "name": "\u65b9\u81e3",
+      "gender": "\u7537",
+      "field": "\u533b\u7597",
+      "profession": "\u62a4\u7406",
+      "birthday": "\u65e0",
+      "description": "\u5bf9\u5e38\u89c1\u75be\u75c5\u6709\u4e86\u89e3"
+    },
+    {
+      "id": "\u674e\u9526\u6d2a\u6d4b\u8bd5",
+      "label": "\u674e\u9526\u6d2a\u6d4b\u8bd5",
+      "name": "\u674e\u9526\u6d2a\u6d4b\u8bd5",
+      "gender": "\u7537",
+      "field": "\u8ba1\u7b97\u673a",
+      "profession": "\u8f6f\u4ef6\u5f00\u53d1\u5de5\u7a0b\u5e08",
+      "birthday": "\u65e0",
+      "description": "\u65e0"
+    }
+  ],
+  "relations": [
+    {
+      "from": "\u674e\u9526\u6d2a",
+      "to": "\u65b9\u81e3",
+      "arrows": "to",
+      "name": "\u674e\u9526\u6d2a - \u65b9\u81e3",
+      "selected": true,
+      "label": "\u670b\u53cb"
+    }
+  ]
+}
