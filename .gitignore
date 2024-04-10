@@ -13,6 +13,10 @@ source/_posts/draw.io*/
 _multiconfig.yml
 .obsidian/**
 # onlyOneDrive 
+scaffolds/_obsidian.md
+# onlyOneDrive 
+scaffolds/_项目经验复盘.md
+# onlyOneDrive 
 source/_posts/收集箱/_软件工程.md
 # onlyOneDrive 
 source/_posts/收集箱/买房/_重庆买房指南.md
@@ -24,6 +28,8 @@ source/_posts/收集箱/学习/VPS.md
 source/_posts/收集箱/学习/_个人穿搭公式.md
 # onlyOneDrive 
 source/_posts/收集箱/学习/社会规则.md
+# onlyOneDrive 
+source/_posts/99知识树/生活/社交/个人关系网建立心得.md
 # onlyOneDrive 
 source/_posts/99知识树/生活/社交/PRD/README.md
 # onlyOneDrive 
@@ -52,6 +58,8 @@ source/_posts/99知识树/年度计划/2024年度计划.md
 source/_posts/短期研究/复盘/工作/_项目上的压测瓶颈分析.md
 # onlyOneDrive 
 source/_posts/专题研究/社交/_如何拒绝别人.md
+# onlyOneDrive 
+source/_posts/专题研究/社交/社交方法论.md
 # onlyOneDrive 
 source/_posts/专题研究/社交/_如何处理亲戚之间的关系.md
 # onlyOneDrive 
