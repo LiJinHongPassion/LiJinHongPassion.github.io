@@ -1,0 +1,1306 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-CN" data-default-color-scheme=auto>
+
+
+
+<head>
+  <meta charset="UTF-8">
+
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/my/header.png">
+  <link rel="icon" href="/img/my/header.png">
+  
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  
+  <meta name="theme-color" content="#2f4154">
+  <meta name="author" content="快楽星球家">
+  <meta name="keywords" content="">
+  
+    <meta name="description" content="S（情境）在华为OD负责解决方案工作台加速场模块期间，我们接到一个需求：发布方案模板时，需要支持对模板内的敏感数据进行脱敏处理，且脱敏数据量的最大阈值能达到百万级，单条数据大小最多1KB。同时，脱敏任务和模块的正常业务功能运行在同一台服务器上，不能影响用户正常使用。 T（任务）我的任务是设计一个脱敏方案，既要保证百万级数据能在合理时间内处理完成，又要防止因正则表达式不当引发安全风险（如ReDoS攻">
+<meta property="og:type" content="article">
+<meta property="og:title" content="百万级数据脱敏方案设计（加速场）">
+<meta property="og:url" content="https://lijinhongpassion.github.io/2026/06/46284d0d6084.html">
+<meta property="og:site_name" content="快楽星球家的知识库">
+<meta property="og:description" content="S（情境）在华为OD负责解决方案工作台加速场模块期间，我们接到一个需求：发布方案模板时，需要支持对模板内的敏感数据进行脱敏处理，且脱敏数据量的最大阈值能达到百万级，单条数据大小最多1KB。同时，脱敏任务和模块的正常业务功能运行在同一台服务器上，不能影响用户正常使用。 T（任务）我的任务是设计一个脱敏方案，既要保证百万级数据能在合理时间内处理完成，又要防止因正则表达式不当引发安全风险（如ReDoS攻">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2026-06-24T00:00:00.000Z">
+<meta property="article:modified_time" content="2026-07-21T06:18:03.754Z">
+<meta property="article:author" content="快楽星球家">
+<meta property="article:tag" content="复盘&#x2F;工作">
+<meta name="twitter:card" content="summary_large_image">
+  
+  
+  
+  <title>百万级数据脱敏方案设计（加速场） - 快楽星球家的知识库</title>
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+
+
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/github-markdown-css/4.0.0/github-markdown.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/hint.css/2.7.0/hint.min.css" />
+
+  <link  rel="stylesheet" href="https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.css" />
+
+
+
+<!-- 主题依赖的图标库，不要自行修改 -->
+<!-- Do not modify the link that theme dependent icons -->
+
+<link rel="stylesheet" href="//at.alicdn.com/t/c/font_1749284_5i9bdhy70f8.css">
+
+
+
+<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
+
+
+<link  rel="stylesheet" href="/css/main.css" />
+
+
+  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
+  
+    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
+  
+
+
+
+
+  <script id="fluid-configs">
+    var Fluid = window.Fluid || {};
+    Fluid.ctx = Object.assign({}, Fluid.ctx)
+    var CONFIG = {"hostname":"lijinhongpassion.github.io","root":"/","version":"1.9.9","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"expand_all":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":true,"follow_dnt":true,"baidu":null,"google":{"measurement_id":"c12352b21d4053ad380c6e86b433f98b"},"tencent":{"sid":null,"cid":null},"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false},"openkounter":{"server_url":"https://open-kounter.mintimate.cn","path":"window.location.pathname","ignore_local":false},"umami":{"src":null,"website_id":null,"domains":null,"start_time":"2024-01-01T00:00:00.000Z","token":null,"api_server":null},"woyaola":null,"cnzz":null},"search_path":"/local-search.xml","include_content_in_search":true};
+
+    if (CONFIG.web_analytics.follow_dnt) {
+      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
+      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
+    }
+  </script>
+  <script  src="/js/utils.js" ></script>
+  <script  src="/js/color-schema.js" ></script>
+  
+
+  
+
+  
+    <!-- Google tag (gtag.js) -->
+    <script async>
+      if (!Fluid.ctx.dnt) {
+        Fluid.utils.createScript("https://www.googletagmanager.com/gtag/js?id=c12352b21d4053ad380c6e86b433f98b", function() {
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'c12352b21d4053ad380c6e86b433f98b');
+        });
+      }
+    </script>
+  
+
+  
+
+  
+
+  
+
+  
+    
+  
+
+
+
+
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+
+<body>
+  
+
+  <header>
+    
+
+<div class="header-inner" style="height: 70vh;">
+  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="/">
+      <strong>快楽星球家&#39;s 知识库</strong>
+    </a>
+
+    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <div class="animated-icon"><span></span><span></span><span></span></div>
+    </button>
+
+    <!-- Collapsible content (desktop) -->
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav ml-auto text-center">
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/" target="_self">
+                <i class="iconfont icon-home-fill"></i>
+                <span>主页</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/archives/" target="_self">
+                <i class="iconfont icon-archive-fill"></i>
+                <span>归档</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/categories/" target="_self">
+                <i class="iconfont icon-category-fill"></i>
+                <span>分类</span>
+              </a>
+            </li>
+          
+        
+          
+          
+          
+          
+            <li class="nav-item">
+              <a class="nav-link" href="/about/" target="_self">
+                <i class="iconfont icon-user-fill"></i>
+                <span>关于我</span>
+              </a>
+            </li>
+          
+        
+        
+          <li class="nav-item" id="search-btn">
+            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <i class="iconfont icon-search"></i>
+            </a>
+          </li>
+          
+        
+        
+          <li class="nav-item" id="color-toggle-btn">
+            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
+              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
+            </a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Mobile grid menu overlay -->
+<div id="mobile-grid-menu" class="d-lg-none">
+  <div class="mobile-grid-menu-inner">
+    <div class="container">
+      <div class="row">
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-home-fill"></i>
+                  <span>主页</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/archives/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-archive-fill"></i>
+                  <span>归档</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/categories/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-category-fill"></i>
+                  <span>分类</span>
+                </div>
+              </a>
+            </div>
+          
+        
+          
+          
+          
+          
+            <div class="col-4 mobile-grid-cell">
+              <a href="/about/" target="_self">
+                <div class="mobile-grid-item">
+                  <i class="iconfont icon-user-fill"></i>
+                  <span>关于我</span>
+                </div>
+              </a>
+            </div>
+          
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-search-btn">
+            <a href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-search"></i>
+                <span>搜索</span>
+              </div>
+            </a>
+          </div>
+        
+        
+          <div class="col-4 mobile-grid-cell" id="mobile-color-toggle-btn"
+               data-label-light="开灯"
+               data-label-dark="关灯">
+            <a href="javascript:;" aria-label="Color Toggle">
+              <div class="mobile-grid-item">
+                <i class="iconfont icon-dark" id="mobile-color-toggle-icon"></i>
+                <span id="mobile-color-toggle-label">关灯</span>
+              </div>
+            </a>
+          </div>
+        
+      </div>
+    </div>
+  </div>
+</div>
+
+  
+
+<div id="banner" class="banner" parallax=true
+     style="background: url('/img/my/default.png') no-repeat center center; background-size: cover;">
+  <div class="full-bg-img">
+    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
+      <div class="banner-text text-center fade-in-up">
+        <div class="h2">
+          
+            <span id="subtitle" data-typed-text="百万级数据脱敏方案设计（加速场）"></span>
+          
+        </div>
+
+        
+          
+  <div class="mt-3">
+    
+    
+      <span class="post-meta">
+        <i class="iconfont icon-date-fill" aria-hidden="true"></i>
+        <time datetime="2026-06-24 00:00" pubdate>
+          2026年6月24日 凌晨
+        </time>
+      </span>
+    
+  </div>
+
+  <div class="mt-1">
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-chart"></i>
+        
+          7.2k 字
+        
+      </span>
+    
+
+    
+      <span class="post-meta mr-2">
+        <i class="iconfont icon-clock-fill"></i>
+        
+        
+        
+          60 分钟
+        
+      </span>
+    
+
+    
+    
+  </div>
+
+
+        
+      </div>
+
+      
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+  </header>
+
+  <main>
+    
+      
+
+<div class="container-fluid nopadding-x">
+  <div class="row nomargin-x">
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+
+    </div>
+
+    <div class="col-lg-8 nopadding-x-md">
+      <div class="container nopadding-x-md" id="board-ctn">
+        <div id="board">
+          <article class="post-content mx-auto">
+            <h1 id="seo-header">百万级数据脱敏方案设计（加速场）</h1>
+            
+            
+              <div class="markdown-body">
+                
+                <h3 id="S（情境）"><a href="#S（情境）" class="headerlink" title="S（情境）"></a>S（情境）</h3><p>在华为OD负责解决方案工作台加速场模块期间，我们接到一个需求：发布方案模板时，需要支持对模板内的敏感数据进行脱敏处理，且脱敏数据量的最大阈值能达到百万级，单条数据大小最多1KB。同时，脱敏任务和模块的正常业务功能运行在同一台服务器上，不能影响用户正常使用。</p>
+<h3 id="T（任务）"><a href="#T（任务）" class="headerlink" title="T（任务）"></a>T（任务）</h3><p>我的任务是设计一个脱敏方案，既要保证百万级数据能在合理时间内处理完成，又要防止因正则表达式不当引发安全风险（如ReDoS攻击），同时还要保证服务器运行期间不影响模块的正常功能。</p>
+<h3 id="A（行动）"><a href="#A（行动）" class="headerlink" title="A（行动）"></a>A（行动）</h3><p><strong>首先，整体业务流程如下：</strong></p>
+<blockquote>
+<p>用户在前端点击”发布方案模板” → 系统将模板当前数据做一份快照 → 用户选择”先脱敏，再发布” → 后端将<strong>方案ID</strong>封装成消息发送到Kafka → 立即返回前端”脱敏任务已提交” → 消费者从Kafka异步拉取方案ID → 根据方案ID查询阈值达百万级的脱敏数据 → 按每批1000条的粒度分页查询数据 → 提交到独立的脱敏线程池并行处理 → 每处理完一批更新数据库中的任务状态 → 所有批次处理完成后更新任务状态为”已完成” → 通过WebSocket通知前端”脱敏完成，可以发布了” → 用户确认后，将脱敏后的快照数据发布为正式模板。</p>
+</blockquote>
+<p><strong>基于这个流程，我从四个维度来设计方案：</strong></p>
+<p><strong>1. 流量削峰——引入消息队列。</strong> 多人同时发布多个模板时，脱敏任务可能瞬间涌入。我引入Kafka作为任务缓冲层：用户提交脱敏请求后，只将<strong>方案ID</strong>封装成消息发送到Kafka，消息体极小，几乎不占资源，立即返回前端”脱敏任务已提交”。消费者每次从Kafka拉取<strong>1个方案ID</strong>，处理完成后再拉取下一个，天然实现背压。消费者拉取到方案ID后立即手动commit偏移量，再将任务提交到线程池，避免脱敏处理时间过长导致Kafka消费超时触发rebalance。脱敏任务的处理状态通过数据库持久化跟踪，即使消费者重启，也能从断点处恢复。</p>
+<p><strong>数据库状态跟踪设计：</strong> 创建脱敏任务表，核心字段包括：任务状态（0-待处理、1-处理中、2-已完成、3-失败）、总数据条数、已处理条数、当前批次序号。用户提交脱敏时插入一条status&#x3D;0的记录；消费者拉取到任务后更新为status&#x3D;1；每处理完一批数据，更新已处理条数和批次序号；全部完成后更新为status&#x3D;2；异常且重试3次仍失败则更新为status&#x3D;3并记录错误信息。消费者重启时，扫描status&#x3D;1的任务，根据批次序号和已处理条数确定断点，从断点处继续处理，保证幂等性。</p>
+<p><strong>2. 性能维度——单模板串行 + 分片并行。</strong> 服务器运行期间，同一时间只处理1个模板的脱敏任务，避免多个模板争抢资源影响业务功能。脱敏任务使用<strong>独立的线程池</strong>，与业务线程池完全隔离。消费者从Kafka拉取到方案ID后，先查询脱敏数据的总条数，然后按每批1000条的粒度分页查询，每次只加载1000条数据到内存，避免OOM。将每批数据作为一个子任务提交到脱敏线程池并行处理。线程池配置：8核服务器，核心线程数<strong>4</strong>（CPU×0.5），最大线程数<strong>8</strong>（CPU×1），有界队列容量1000，拒绝策略用CallerRunsPolicy做反压。4个核心线程并行处理，每秒可完成约4000-8000条数据的脱敏，百万级数据整体耗时约2-4分钟。</p>
+<p><strong>3. 安全维度——ReDoS防护 + 多层阈值兜底。</strong> 脱敏核心逻辑依赖正则匹配，百万级数据中如果存在恶意构造的输入，可能导致正则引擎灾难性回溯。我采取了以下措施：</p>
+<ul>
+<li>用确定性正则替代回溯型正则，如用<code>1[3-9]\d&#123;9&#125;</code>替代<code>1[3-9][0-9]+</code>，避免嵌套量词和模糊匹配</li>
+<li>设置<strong>单条匹配超时1s</strong>，通过Future.get(timeout)控制，超时则跳过并记录异常</li>
+<li>设置<strong>单批次处理超时5分钟</strong>，每批1000条数据超时未完成则触发告警</li>
+<li>设置<strong>整个模板脱敏超时30分钟</strong>，百万级数据正常2-4分钟，超时则自动终止并通知运维</li>
+<li>设置<strong>单条数据大小上限10KB</strong>，超过则截断或跳过，防止超大文本导致内存溢出</li>
+<li>设置<strong>脱敏失败重试3次</strong>，超过则跳过并记录异常日志</li>
+</ul>
+<p><strong>4. 可运维维度——脱敏对照表。</strong> 脱敏前对原始数据做哈希映射，生成加密存储的对照表，方便线上排查问题时可申请权限追溯原始数据。</p>
+<h3 id="R（结果）"><a href="#R（结果）" class="headerlink" title="R（结果）"></a>R（结果）</h3><p>最终方案落地后，用户提交脱敏任务即可离开，脱敏完成后收到通知再回来确认发布，体验流畅。单个模板百万级数据的脱敏处理时间控制在2-4分钟，且脱敏期间模块的正常业务功能未受到影响，未出现用户操作卡顿或接口超时的情况。通过Kafka削峰，多人同时提交脱敏任务时，后端也能稳定处理。正则安全防护上线后，未发生过因脱敏导致的CPU飙升或服务异常。这套方案后来也被复用到其他需要批量数据处理的场景中。</p>
+<h2 id="二、追问问题汇总"><a href="#二、追问问题汇总" class="headerlink" title="二、追问问题汇总"></a>二、追问问题汇总</h2><h3 id="线程池问题"><a href="#线程池问题" class="headerlink" title="线程池问题"></a>线程池问题</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>追问问题</th>
+<th>考察点</th>
+<th>建议回答方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1</td>
+<td>线程池的参数配置</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>线程池参数为什么设4和8？</strong></td>
+<td>资源分配意识</td>
+<td>8核服务器，业务功能预留一半资源，脱敏作为后台任务优先级较低，4核足够支撑百万级数据在几分钟内处理完</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>线程池的核心参数有哪些？分别有什么用？</strong></td>
+<td>是否真正用过线程池</td>
+<td>corePoolSize、maximumPoolSize、keepAliveTime、workQueue、threadFactory、RejectedExecutionHandler</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>线程池的提交流程是怎样的？</strong></td>
+<td>线程池工作原理</td>
+<td>核心线程 → 工作队列 → 最大线程 → 拒绝策略</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>corePoolSize和maximumPoolSize设多少合适？依据是什么？</strong></td>
+<td>参数设计的合理性</td>
+<td>CPU密集型：N+1；IO密集型：2N；混合型：根据实际压测调整。结合您的场景：脱敏是CPU+IO混合型，8核服务器设4和8</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>有界队列和无界队列怎么选？</strong></td>
+<td>队列选型意识</td>
+<td>有界队列：防止内存溢出，任务超过队列容量触发拒绝策略。无界队列：可能导致内存无限增长。生产环境推荐有界队列</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>拒绝策略有哪些？你们用的哪个？</strong></td>
+<td>是否了解拒绝策略</td>
+<td>AbortPolicy（抛异常）、CallerRunsPolicy（调用者线程执行）、DiscardPolicy（丢弃）、DiscardOldestPolicy（丢弃最旧）。您的场景用CallerRunsPolicy做反压</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>你们脱敏线程池的核心线程数为什么设4而不是8？</strong></td>
+<td>资源分配意识</td>
+<td>8核服务器还要跑业务功能，脱敏是后台任务优先级较低，预留一半资源给业务。4核并行处理每秒可完成4000-8000条，百万级数据2-4分钟，已经满足需求</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>线程池队列容量为什么设1000？依据是什么？</strong></td>
+<td>参数设计的合理性</td>
+<td>每批1000条数据，队列容量1000意味着最多积压100万条待处理数据，内存可控。同时结合CallerRunsPolicy，队列满了由提交线程自己处理，起到反压效果</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>脱敏线程池和业务线程池怎么隔离的？</strong></td>
+<td>资源隔离意识</td>
+<td>两个独立的ThreadPoolExecutor实例，使用不同的线程工厂和线程组，互不干扰。脱敏线程池满不会影响业务接口的响应</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>线程池的参数是写死的还是可动态调整的？</strong></td>
+<td>运维和调优意识</td>
+<td>通过配置中心（如Nacos、Apollo）动态调整，白天高峰期核心线程数保持4，夜间低峰期调大到8或16加速处理积压任务</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>线程池的线程名前缀怎么设置的？有什么用？</strong></td>
+<td>运维意识</td>
+<td>设置自定义线程名前缀，如”desensitization-pool-“，方便线上排查问题时通过jstack快速定位线程归属</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>线上怎么查看线程池的运行状态？</strong></td>
+<td>监控和排查能力</td>
+<td>ThreadPoolExecutor提供了getPoolSize()、getActiveCount()、getQueue().size()、getCompletedTaskCount()等方法，可以暴露成Metrics接入监控系统</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>如果线程池的任务队列一直增长，怎么排查？</strong></td>
+<td>线上问题排查能力</td>
+<td>先看消费者是否正常拉取消息 → 再看线程池活跃线程数是否达到上限 → 检查任务处理是否有阻塞（如数据库慢查询、远程调用超时）→ 查看是否有死锁</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>线程池中的任务抛出异常会怎样？</strong></td>
+<td>异常处理意识</td>
+<td>如果任务没有捕获异常，线程会退出，线程池会新建一个线程替代它。异常信息会丢失。建议在任务中自行捕获异常并记录日志，或者设置UncaughtExceptionHandler</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>怎么监控线程池是否过载？</strong></td>
+<td>监控意识</td>
+<td>监控活跃线程数、队列积压量、任务拒绝次数。设置告警阈值：队列使用率超过80%告警，拒绝次数大于0立即告警</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>jstack命令用过吗？怎么分析线程堆栈？</strong></td>
+<td>线上问题排查能力</td>
+<td>jstack pid查看所有线程堆栈，搜索线程名前缀定位目标线程，查看WAITING&#x2F;BLOCKED状态判断是否有死锁或长时间阻塞</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>为什么用线程池而不是直接new Thread？</strong></td>
+<td>线程池的价值认知</td>
+<td>线程池复用线程、控制并发数、减少创建销毁开销、提供队列缓冲和拒绝策略。直接new Thread在高并发下会导致系统资源耗尽</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>脱敏任务为什么分片后还要并行处理？直接单线程不行吗？</strong></td>
+<td>性能优化意识</td>
+<td>百万级数据单线程处理约13分钟，16线程并行可缩短到1分钟以内。分片并行是在资源可控的前提下最大化利用CPU</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>如果脱敏任务中有一个批次一直处理不完，会阻塞后面的批次吗？</strong></td>
+<td>并发设计意识</td>
+<td>不会。每个批次是独立的子任务提交到线程池，一个批次卡住不会影响其他批次。但需要通过超时机制兜底，防止该批次一直占用线程资源</td>
+</tr>
+<tr>
+<td>19</td>
+<td><strong>CallerRunsPolicy在你们场景里具体怎么工作的？</strong></td>
+<td>反压机制的理解</td>
+<td>当线程池队列满了，提交任务的线程（消费者线程）会自己执行脱敏任务。此时消费者线程被占用，无法拉取新的Kafka消息，自然实现了背压——让上游慢下来</td>
+</tr>
+<tr>
+<td>20</td>
+<td><strong>如果业务流量暴增，脱敏线程池会不会影响业务线程池？</strong></td>
+<td>资源隔离的可靠性</td>
+<td>两个线程池完全隔离，脱敏线程池即使满负荷运行，也不会占用业务线程池的线程。最坏情况下脱敏变慢，但业务接口不受影响</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>21</td>
+<td><strong>ThreadLocal用过吗？有什么坑？</strong></td>
+<td>并发工具的理解</td>
+<td>用于线程上下文传递。坑：线程池复用线程，如果不及时清理，下一个任务会读到上一个任务的数据。解决方案：每次使用后调用remove()</td>
+</tr>
+<tr>
+<td>22</td>
+<td><strong>synchronized和ReentrantLock怎么选？</strong></td>
+<td>锁的理解</td>
+<td>synchronized：简单、自动释放、适合低竞争场景。ReentrantLock：可中断、可超时、支持公平锁、支持多个Condition、适合高竞争或复杂同步场景</td>
+</tr>
+<tr>
+<td>23</td>
+<td><strong>volatile和AtomicInteger的区别？</strong></td>
+<td>并发原语的理解</td>
+<td>volatile保证可见性和有序性，但不保证原子性。AtomicInteger通过CAS保证原子性，适合计数器等场景</td>
+</tr>
+<tr>
+<td>24</td>
+<td><strong>你们遇到过死锁吗？怎么排查和解决的？</strong></td>
+<td>实战经验</td>
+<td>jstack分析线程堆栈，搜索”deadlock”关键字。解决：统一锁的获取顺序、减少锁的持有时间、使用tryLock加超时避免无限等待</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>25</td>
+<td><strong>脱敏任务分片后提交到线程池，怎么知道所有批次都处理完了？</strong></td>
+<td></td>
+<td>使用CountDownLatch或CompletableFuture.allOf()等待所有批次完成，或者每处理完一批更新数据库中的processed_count，轮询判断是否全部完成</td>
+</tr>
+<tr>
+<td>26</td>
+<td><strong>如果某个批次处理失败了，其他批次已经处理完了，怎么处理？</strong></td>
+<td></td>
+<td>记录失败批次的偏移量，继续处理后续批次。全部批次处理完后，统一重试失败的批次。重试3次仍失败，标记任务为”失败”，通知人工介入</td>
+</tr>
+<tr>
+<td>27</td>
+<td><strong>线程池中的任务可以取消吗？</strong></td>
+<td></td>
+<td>可以。Future.cancel(true)尝试取消正在执行的任务，但依赖任务本身对中断信号的响应。如果任务没有处理中断信号，取消可能无效</td>
+</tr>
+</tbody></table>
+<h3 id="Kafka问题"><a href="#Kafka问题" class="headerlink" title="Kafka问题"></a>Kafka问题</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>追问问题</th>
+<th>考察点</th>
+<th>建议回答方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>6</td>
+<td><strong>立即commit后消费者挂了，任务会不会丢？</strong></td>
+<td>可靠性设计</td>
+<td>不会丢。任务状态已持久化到数据库，消费者重启后扫描status&#x3D;1的任务，从断点处继续处理</td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>怎么保证重复处理不会导致数据异常？</strong></td>
+<td>幂等性设计</td>
+<td>每个批次处理前先检查该批次是否已处理完成，已完成的批次跳过。脱敏操作本身是幂等的——同一份数据脱敏两次结果一致</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>如果Kafka挂了怎么办？</strong></td>
+<td>消息队列的高可用意识</td>
+<td>Kafka有副本机制和持久化，配合消费者手动提交offset，重启后可继续消费未处理的消息</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>为什么用Kafka不用RabbitMQ？</strong></td>
+<td>中间件选型能力</td>
+<td>Kafka更适合削峰填谷和海量消息堆积的场景，吞吐量更高，持久化能力更强</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>1</td>
+<td><strong>Kafka为什么吞吐量高？</strong></td>
+<td>是否理解Kafka的核心设计</td>
+<td>顺序写磁盘、零拷贝（sendfile）、页缓存、批量压缩、分区并行</td>
+</tr>
+<tr>
+<td>2</td>
+<td><strong>Kafka怎么保证消息不丢失？</strong></td>
+<td>生产者和消费者的可靠性配置</td>
+<td>生产者ACK&#x3D;all（-1）、副本数≥2、min.insync.replicas、消费者手动提交offset</td>
+</tr>
+<tr>
+<td>3</td>
+<td><strong>Kafka怎么保证消息顺序消费？</strong></td>
+<td>顺序性的实现方式</td>
+<td>同一个业务key路由到同一个分区，一个分区只能被同一个消费者组内的一个消费者消费</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>Kafka分区数和消费者数的关系？</strong></td>
+<td>并行消费的理解</td>
+<td>一个分区只能被一个消费者消费；消费者数超过分区数时，多余的消费者闲置</td>
+</tr>
+<tr>
+<td>5</td>
+<td><strong>Kafka的ISR是什么？有什么用？</strong></td>
+<td>副本同步机制</td>
+<td>In-Sync Replicas，与Leader保持同步的副本集合，用于Leader选举和消息可靠性保证</td>
+</tr>
+<tr>
+<td>6</td>
+<td><strong>Kafka的Leader选举机制是怎样的？</strong></td>
+<td>高可用理解</td>
+<td>从ISR中选举，优先选择与Leader差距最小的副本作为新Leader</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td><strong>你们Topic设置了多少个分区？依据是什么？</strong></td>
+<td>分区数设计的合理性</td>
+<td>同一时间只处理1个模板，2-4个分区足够。分区数太多增加Leader选举和文件句柄开销</td>
+</tr>
+<tr>
+<td>8</td>
+<td><strong>消费者手动提交offset，commit频率怎么控制？</strong></td>
+<td>是否真正用过手动提交</td>
+<td>拉取到方案ID后立即commit，保证”至少一次”语义，配合数据库状态做幂等处理</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>如果消费者处理消息时抛异常了，offset怎么处理？</strong></td>
+<td>异常处理意识</td>
+<td>不commit，下次重启时重新消费；或者捕获异常后记录到死信队列，手动补偿</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>Kafka消息积压了怎么排查和解决？</strong></td>
+<td>线上问题排查能力</td>
+<td>先看积压在哪个分区、消费者是否正常、是否有慢消费；临时方案增加消费者或扩大分区；根治优化消费逻辑</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>Kafka的rebalance你遇到过吗？什么原因导致的？</strong></td>
+<td>是否遇到过生产问题</td>
+<td>消费者加入或退出、session超时、max.poll.interval.ms超时。rebalance期间所有消费者暂停消费，影响吞吐量</td>
+</tr>
+<tr>
+<td>12</td>
+<td><strong>max.poll.interval.ms和session.timeout.ms有什么区别？</strong></td>
+<td>对Kafka超时机制的理解</td>
+<td>max.poll.interval.ms控制两次poll的最大间隔，超时认为消费者卡死；session.timeout.ms控制心跳超时，超时认为消费者挂了</td>
+</tr>
+<tr>
+<td></td>
+<td></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>为什么选Kafka而不是RocketMQ或RabbitMQ？</strong></td>
+<td>中间件选型能力</td>
+<td>Kafka吞吐量最高、消息堆积能力强、适合削峰填谷。脱敏场景需要海量消息堆积和削峰，Kafka最合适</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>如果脱敏任务对实时性有要求，Kafka还合适吗？</strong></td>
+<td>对Kafka局限性的认知</td>
+<td>Kafka实时性不如RabbitMQ或RocketMQ，消息是批量拉取的，延迟在毫秒到秒级。如果要求秒级响应，可考虑RocketMQ</td>
+</tr>
+<tr>
+<td>15</td>
+<td><strong>Kafka消息体为什么只放方案ID，而不是全量数据？</strong></td>
+<td>消息体设计的合理性</td>
+<td>方案ID只有几十字节，消息体小，传输和序列化开销低，Kafka吞吐量更高。全量数据可能几MB，会拖慢Kafka读写性能</td>
+</tr>
+<tr>
+<td>16</td>
+<td><strong>如果Kafka集群挂了，怎么保证不丢任务？</strong></td>
+<td>高可用设计</td>
+<td>Kafka集群有副本机制和ISR，配合生产者ACK&#x3D;all保证消息不丢。同时数据库中有任务状态兜底，即使Kafka不可用，也可以从数据库中恢复未处理的任务</td>
+</tr>
+<tr>
+<td>17</td>
+<td><strong>消费者每次只拉取1个方案ID，那Kafka多分区的优势是不是浪费了？</strong></td>
+<td>场景适配能力</td>
+<td>不浪费。多分区仍然提供了消息的分布式存储和故障隔离能力。虽然当前场景同一时间只处理1个，但多个分区可以承载不同模板的消息，消费者重启或故障时也能快速切换</td>
+</tr>
+<tr>
+<td>18</td>
+<td><strong>立即commit后消费者挂了，任务会不会丢？</strong></td>
+<td>可靠性设计</td>
+<td>不会丢。任务状态已持久化到数据库，消费者重启后扫描status&#x3D;1的任务，从断点处继续处理</td>
+</tr>
+</tbody></table>
+<h3 id="正则问题"><a href="#正则问题" class="headerlink" title="正则问题"></a>正则问题</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>追问问题</th>
+<th>考察点</th>
+<th>建议回答方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>3</td>
+<td><strong>正则超时在Java里具体怎么实现？</strong></td>
+<td>是否真正落地过</td>
+<td>Future.get(timeout)控制超时，超时则中断任务并记录异常日志</td>
+</tr>
+<tr>
+<td>4</td>
+<td><strong>单条匹配超时为什么设1s？依据是什么？</strong></td>
+<td>参数设计的合理性</td>
+<td>1KB文本跑3-5条正则，正常耗时在0.5-1ms，1s是非常保守的上限，足以区分正常数据和恶意构造的输入</td>
+</tr>
+<tr>
+<td>11</td>
+<td><strong>单条脱敏0.5-1ms这个数据是怎么来的？</strong></td>
+<td>量化数据是否经得起推敲</td>
+<td>1KB文本跑3-5条正则，基于本地测试和线上压测的综合估算</td>
+</tr>
+<tr>
+<td>13</td>
+<td><strong>如果某个模板的脱敏任务一直失败怎么办？</strong></td>
+<td>异常处理意识</td>
+<td>设置重试机制（最多3次），超过重试次数后标记为”脱敏异常”，通知人工介入处理</td>
+</tr>
+<tr>
+<td>14</td>
+<td><strong>单条数据大小上限10KB，如果业务上确实需要处理更大的数据怎么办？</strong></td>
+<td>边界情况处理</td>
+<td>可以做成可配置项，根据业务需求动态调整，但需要同步评估对内存和性能的影响</td>
+</tr>
+</tbody></table>
+<h3 id="其他问题"><a href="#其他问题" class="headerlink" title="其他问题"></a>其他问题</h3><table>
+<thead>
+<tr>
+<th>序号</th>
+<th>追问问题</th>
+<th>考察点</th>
+<th>建议回答方向</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>2</td>
+<td><strong>分页查询用OFFSET，百万级数据越往后越慢怎么办？</strong></td>
+<td>分页优化的实战经验</td>
+<td>改用基于ID的区间查询：<code>WHERE id &gt; 上次最大id ORDER BY id LIMIT 1000</code>，走索引，性能稳定</td>
+</tr>
+<tr>
+<td>9</td>
+<td><strong>同一时间只处理1个模板，如果多个用户同时提交，后面的要等多久？</strong></td>
+<td>用户体验意识</td>
+<td>单个模板2-4分钟，用户提交后即可离开，脱敏完成后通过WebSocket通知，不需要在页面等待</td>
+</tr>
+<tr>
+<td>10</td>
+<td><strong>WebSocket通知如果客户端断连了怎么办？</strong></td>
+<td>消息可达性意识</td>
+<td>增加兜底机制：脱敏完成后同时发送邮件或站内信，用户下次登录时也能看到通知</td>
+</tr>
+</tbody></table>
+
+                
+              </div>
+            
+            <hr/>
+            <div>
+              <div class="post-metas my-3">
+  
+    <div class="post-meta mr-3 d-flex align-items-center">
+      <i class="iconfont icon-category"></i>
+      
+
+<span class="category-chains">
+  
+  
+    
+      <span class="category-chain">
+        
+  <a href="/categories/%E5%A4%8D%E7%9B%98/" class="category-chain-item">复盘</a>
+  
+  
+    <span>></span>
+    
+  <a href="/categories/%E5%A4%8D%E7%9B%98/%E5%B7%A5%E4%BD%9C/" class="category-chain-item">工作</a>
+  
+  
+
+  
+
+      </span>
+    
+  
+</span>
+
+    </div>
+  
+  
+    <div class="post-meta">
+      <i class="iconfont icon-tags"></i>
+      
+        <a href="/tags/%E5%A4%8D%E7%9B%98-%E5%B7%A5%E4%BD%9C/" class="print-no-link">#复盘/工作</a>
+      
+    </div>
+  
+</div>
+
+
+              
+  
+
+  <div class="license-box my-3">
+    <div class="license-title">
+      <div>百万级数据脱敏方案设计（加速场）</div>
+      <div>https://lijinhongpassion.github.io/2026/06/46284d0d6084.html</div>
+    </div>
+    <div class="license-meta">
+      
+        <div class="license-meta-item">
+          <div>作者</div>
+          <div>快楽星球家</div>
+        </div>
+      
+      
+        <div class="license-meta-item license-meta-date">
+          <div>发布于</div>
+          <div>2026年6月24日</div>
+        </div>
+      
+      
+      
+        <div class="license-meta-item">
+          <div>许可协议</div>
+          <div>
+            
+              
+              
+                <a class="print-no-link" target="_blank" href="https://creativecommons.org/licenses/by/4.0/">
+                  <span class="hint--top hint--rounded" aria-label="BY - 署名">
+                    <i class="iconfont icon-cc-by"></i>
+                  </span>
+                </a>
+              
+            
+          </div>
+        </div>
+      
+    </div>
+    <div class="license-icon iconfont"></div>
+  </div>
+
+
+
+              
+                <div class="post-prevnext my-3">
+                  <article class="post-prev col-6">
+                    
+                    
+                      <a href="/2026/07/865a1273c4c3.html" title="">
+                        <i class="iconfont icon-arrowleft"></i>
+                        <span class="hidden-mobile"></span>
+                        <span class="visible-mobile">上一篇</span>
+                      </a>
+                    
+                  </article>
+                  <article class="post-next col-6">
+                    
+                    
+                      <a href="/2026/05/4515f8f39b8f.html" title="近来的家庭感想">
+                        <span class="hidden-mobile">近来的家庭感想</span>
+                        <span class="visible-mobile">下一篇</span>
+                        <i class="iconfont icon-arrowright"></i>
+                      </a>
+                    
+                  </article>
+                </div>
+              
+            </div>
+
+            
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="side-col d-none d-lg-block col-lg-2">
+      
+  <aside class="sidebar" style="margin-left: -1rem">
+    <div id="toc">
+  <p class="toc-header">
+    <i class="iconfont icon-list"></i>
+    <span>目录</span>
+  </p>
+  <div class="toc-body" id="toc-body"></div>
+</div>
+
+
+
+  </aside>
+
+
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+  
+
+
+
+
+
+
+
+    
+
+    
+      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
+        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
+      </a>
+    
+
+    
+      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
+     aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header text-center">
+        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
+        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body mx-3">
+        <div class="md-form mb-5">
+          <input type="text" id="local-search-input" class="form-control validate">
+          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+        </div>
+        <div class="list-group" id="local-search-result"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+    
+
+    
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+  
+  
+  
+</div>
+
+  </footer>
+
+  <!-- Scripts -->
+  
+  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
+  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
+
+  <script>
+    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
+    NProgress.start()
+    window.addEventListener('load', function() {
+      NProgress.done();
+    })
+  </script>
+
+
+<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
+<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
+<script  src="/js/events.js" ></script>
+<script  src="/js/plugins.js" ></script>
+
+
+  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
+  <script>
+    (function (window, document) {
+      var typing = Fluid.plugins.typing;
+      var subtitle = document.getElementById('subtitle');
+      if (!subtitle || !typing) {
+        return;
+      }
+      var text = subtitle.getAttribute('data-typed-text');
+      
+        typing(text);
+      
+    })(window, document);
+  </script>
+
+
+
+
+  
+    <script  src="/js/img-lazyload.js" ></script>
+  
+
+
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/tocbot/4.20.1/tocbot.min.js', function() {
+    var toc = jQuery('#toc');
+    if (toc.length === 0 || !window.tocbot) { return; }
+    var boardCtn = jQuery('#board-ctn');
+    var boardTop = boardCtn.offset().top;
+
+    function isExpandAllEnabled() {
+      return CONFIG.toc && CONFIG.toc.expand_all === true;
+    }
+    function expandAllToc() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .tocbot-is-collapsed').removeClass('tocbot-is-collapsed');
+    }
+    function updateTocToggle($li, $childList) {
+      var $toggle = $li.children('.toc-toggle');
+      if ($toggle.length === 0) { return; }
+      var collapsed = $childList.hasClass('tocbot-is-collapsed');
+      $toggle
+        .toggleClass('toc-toggle-collapsed', collapsed)
+        .toggleClass('toc-toggle-expanded', !collapsed);
+    }
+    function bindTocToggle() {
+      if (!isExpandAllEnabled()) { return; }
+      jQuery('#toc-body .toc-list-item').each(function() {
+        var $li = jQuery(this);
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) {
+          if ($li.children('.toc-toggle').length === 0) {
+            $li.prepend('<span class="toc-toggle toc-toggle-placeholder" aria-hidden="true">›</span>');
+          }
+          return;
+        }
+
+        if ($li.children('.toc-toggle').length === 0) {
+          $li.prepend('<span class="toc-toggle toc-toggle-expanded" aria-hidden="true">›</span>');
+        }
+        updateTocToggle($li, $childList);
+      });
+      jQuery('#toc-body').off('click.tocToggle').on('click.tocToggle', '.toc-toggle', function(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        var $li = jQuery(this).parent('.toc-list-item');
+        var $childList = $li.children('ol');
+        if ($childList.length === 0) { return; }
+        $childList.toggleClass('tocbot-is-collapsed');
+        updateTocToggle($li, $childList);
+      });
+      if (!window.__tocToggleObserver) {
+        window.__tocToggleObserver = new MutationObserver(function(mutations) {
+          mutations.forEach(function(mutation) {
+            if (mutation.type !== 'attributes' || mutation.attributeName !== 'class') { return; }
+            var $list = jQuery(mutation.target);
+            var $li = $list.parent('.toc-list-item');
+            if ($li.length === 0) { return; }
+            updateTocToggle($li, $list);
+          });
+        });
+        jQuery('#toc-body ol').each(function() {
+          window.__tocToggleObserver.observe(this, { attributes: true });
+        });
+      }
+    }
+    var tocConfig = Object.assign({
+      tocSelector     : '#toc-body',
+      contentSelector : '.markdown-body',
+      linkClass       : 'tocbot-link',
+      activeLinkClass : 'tocbot-active-link',
+      listClass       : 'tocbot-list',
+      isCollapsedClass: 'tocbot-is-collapsed',
+      collapsibleClass: 'tocbot-is-collapsible',
+      scrollSmooth    : true,
+      includeTitleTags: true,
+      headingsOffset  : -boardTop,
+    }, CONFIG.toc);
+    if (isExpandAllEnabled()) {
+      tocConfig.collapseDepth = 6;
+    }
+    window.tocbot.init(tocConfig);
+    if (toc.find('.toc-list-item').length > 0) {
+      toc.css('visibility', 'visible');
+    }
+    expandAllToc();
+    bindTocToggle();
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('tocbot' in window) {
+        tocbot.refresh();
+        var toc = jQuery('#toc');
+        if (toc.length === 0 || !tocbot) {
+          return;
+        }
+        if (toc.find('.toc-list-item').length > 0) {
+          toc.css('visibility', 'visible');
+        }
+        expandAllToc();
+        bindTocToggle();
+      }
+    });
+  });
+</script>
+
+
+  <script src=https://lib.baomitu.com/clipboard.js/2.0.11/clipboard.min.js></script>
+
+  <script>Fluid.plugins.codeWidget();</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/anchor-js/4.3.1/anchor.min.js', function() {
+    window.anchors.options = {
+      placement: CONFIG.anchorjs.placement,
+      visible  : CONFIG.anchorjs.visible
+    };
+    if (CONFIG.anchorjs.icon) {
+      window.anchors.options.icon = CONFIG.anchorjs.icon;
+    }
+    var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+    var res = [];
+    for (var item of el) {
+      res.push('.markdown-body > ' + item.trim());
+    }
+    if (CONFIG.anchorjs.placement === 'left') {
+      window.anchors.options.class = 'anchorjs-link-left';
+    }
+    window.anchors.add(res.join(', '));
+
+    Fluid.events.registerRefreshCallback(function() {
+      if ('anchors' in window) {
+        anchors.removeAll();
+        var el = (CONFIG.anchorjs.element || 'h1,h2,h3,h4,h5,h6').split(',');
+        var res = [];
+        for (var item of el) {
+          res.push('.markdown-body > ' + item.trim());
+        }
+        if (CONFIG.anchorjs.placement === 'left') {
+          anchors.options.class = 'anchorjs-link-left';
+        }
+        anchors.add(res.join(', '));
+      }
+    });
+  });
+</script>
+
+
+  
+<script>
+  Fluid.utils.createScript('https://lib.baomitu.com/fancybox/3.5.7/jquery.fancybox.min.js', function() {
+    Fluid.plugins.fancyBox();
+  });
+</script>
+
+
+  <script>Fluid.plugins.imageCaption();</script>
+
+  <script defer src="/js/openkounter.js" ></script>
+
+  <script  src="/js/local-search.js" ></script>
+
+
+
+
+
+<!-- 主题的启动项，将它保持在最底部 -->
+<!-- the boot of the theme, keep it at the bottom -->
+<script  src="/js/boot.js" ></script>
+
+
+  
+
+  <noscript>
+    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+  </noscript>
+</body>
+</html>
